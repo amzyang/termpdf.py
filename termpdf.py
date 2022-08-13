@@ -1087,6 +1087,7 @@ def write_gr_cmd(cmd, payload=None):
 def write_gr_cmd_with_response(cmd, payload=None):
     # rewrite using swallow keys to be nonblocking
     write_gr_cmd(cmd, payload)
+    return True
     resp = b''
     while resp[-2:] != b'\033\\':
         resp += sys.stdin.buffer.read(1)
