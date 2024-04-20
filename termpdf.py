@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/Users/zouyang/.local/pipx/venvs/termpdf-py/bin/python
 # vim:fileencoding=utf-8
 """\
 Usage:
@@ -602,15 +602,17 @@ class Document(fitz.Document):
         page_state = self.page_states[p]
 
         if self.manualcrop and self.manualcroprect != [None,None] and self.is_pdf:
-            page.set_cropbox(fitz.Rect(self.manualcroprect[0],self.manualcroprect[1]))
+            # page.set_cropbox(fitz.Rect(self.manualcroprect[0],self.manualcroprect[1]))
+            pass
 
         elif self.autocrop and self.is_pdf:
-            page.set_cropbox(page.mediabox)
+            # page.set_cropbox(page.mediabox)
             crop = self.auto_crop(page)
-            page.set_cropbox(crop)
+            # page.set_cropbox(crop)
 
         elif self.is_pdf:
-            page.set_cropbox(page.mediabox)
+            # page.set_cropbox(page.mediabox)
+            pass
 
         dw = scr.width
         dh = scr.height - scr.cell_height
