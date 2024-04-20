@@ -1132,7 +1132,7 @@ def bib_from_field(field,regex):
 def bib_from_key(citekeys):
     
     field = '$key'
-    regex = '\|'.join(citekeys)
+    regex = '\\|'.join(citekeys)
     regex = '^' + regex + '$'
     return bib_from_field(field,regex)
 
