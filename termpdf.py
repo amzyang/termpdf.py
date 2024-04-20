@@ -326,10 +326,14 @@ class Document(fitz.Document):
         self.goto_page(p)
 
     def next_page(self, count=1):
-        self.goto_page(self.page + count)
+        p = self.page + count
+        p = 0 if p > self.pages else p
+        self.goto_page(p)
 
     def prev_page(self, count=1):
-        self.goto_page(self.page - count)
+        p = self.page - count
+        p = self.pages if p < 0 else p
+        self.goto_page(p)
 
     def goto_chap(self, n):
         toc = self.get_toc()
@@ -1859,4 +1863,3 @@ if __name__ == '__main__':
     #logging.basicConfig(filename='termpdf.log',level=logging.DEBUG)
     logging.basicConfig(filename='termpdf.log',level=logging.WARNING)
     main()
-
